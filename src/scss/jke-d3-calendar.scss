@@ -1,0 +1,26 @@
+$jke-calendar-axisColor: #ddd !default;
+$jke-calendar-backgroundColor: #fff !default;
+$jke-calendar-gridColor: #ddd !default;
+
+.jke-calendar-background {
+	fill: $jke-calendar-backgroundColor;
+	shape-rendering: crispEdges;
+}
+
+.jke-calendar-axis {
+	line, path {
+		fill: none;
+		shape-rendering: crispEdges;
+		stroke: $jke-calendar-axisColor;
+		stroke-width: 1px;
+	}
+}
+
+.jke-calendar-grid {
+	line {
+		fill: none;
+		shape-rendering: crispEdges;
+		stroke: $jke-calendar-gridColor;
+		stroke-width: 1px;
+	}
+}
