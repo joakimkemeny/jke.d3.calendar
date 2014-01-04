@@ -41,6 +41,10 @@ module.exports = function (grunt) {
 				src: 'bower_components/d3/d3.min.js',
 				dest: 'demo/js/lib/d3.min.js'
 			},
+			'demo-moment': {
+				src: 'bower_components/moment/min/moment.min.js',
+				dest: 'demo/js/lib/moment.min.js'
+			},
 			'demo-js': {
 				src: 'dist/jke-d3-calendar.min.js',
 				dest: 'demo/js/jke-d3-calendar.min.js'
@@ -88,6 +92,10 @@ module.exports = function (grunt) {
 				files: ['Gruntfile.js', 'src/scss/**/*.scss'],
 				tasks: ['compass']
 			},
+			uglify: {
+				files: ['Gruntfile.js', 'src/js/**/*.js'],
+				tasks: ['uglify']
+			},
 			copy: {
 				files: ['Gruntfile.js', 'src/**'],
 				tasks: ['copy']
@@ -95,10 +103,6 @@ module.exports = function (grunt) {
 			jshint: {
 				files: ['Gruntfile.js', 'src/js/**/*.js'],
 				tasks: ['jshint']
-			},
-			uglify: {
-				files: ['Gruntfile.js', 'src/js/**/*.js'],
-				tasks: ['uglify']
 			}
 		}
 	});

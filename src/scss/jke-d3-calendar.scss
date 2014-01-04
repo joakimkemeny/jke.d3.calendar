@@ -1,26 +1,97 @@
 $jke-calendar-axisColor: #ddd !default;
 $jke-calendar-backgroundColor: #fff !default;
-$jke-calendar-gridColor: #ddd !default;
+$jke-calendar-xGridColor: #fff !default;
+$jke-calendar-yGridColor: #ddd !default;
+$jke-calendar-xTextColor: #000 !default;
+$jke-calendar-yTextColor: #999 !default;
+$jke-calendar-eventBorderColor: #f4771b !default;
+$jke-calendar-eventBackgroundColor: #fdebde !default;
+$jke-calendar-eventTimeColor: #f4771b !default;
+$jke-calendar-eventNotesColor: #000 !default;
 
 .jke-calendar-background {
 	fill: $jke-calendar-backgroundColor;
 	shape-rendering: crispEdges;
 }
 
-.jke-calendar-axis {
-	line, path {
+.jke-calendar-axis-x {
+	path {
 		fill: none;
 		shape-rendering: crispEdges;
 		stroke: $jke-calendar-axisColor;
+		stroke-width: 2px;
+	}
+	text {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		fill: $jke-calendar-xTextColor;
+		font-size: 14px;
+	}
+}
+
+.jke-calendar-axis-y {
+	:first-child {
+		text {
+			fill: white;
+		}
+	}
+	text {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		fill: $jke-calendar-yTextColor;
+		font-size: 12px;
+	}
+}
+
+.jke-calendar-grid-x {
+	-moz-transform: translate(0, -2px);
+	-webkit-transform: translate(0, -2px);
+	transform: translate(0, -2px);
+
+	line {
+		fill: none;
+		shape-rendering: crispEdges;
+		stroke: $jke-calendar-xGridColor;
+		stroke-width: 15px;
+	}
+}
+
+.jke-calendar-subGrid-y {
+	line {
+		fill: none;
+		shape-rendering: crispEdges;
+		stroke: $jke-calendar-yGridColor;
+		stroke-dasharray: 4, 4;
 		stroke-width: 1px;
 	}
 }
 
-.jke-calendar-grid {
+.jke-calendar-grid-y {
 	line {
 		fill: none;
 		shape-rendering: crispEdges;
-		stroke: $jke-calendar-gridColor;
+		stroke: $jke-calendar-yGridColor;
 		stroke-width: 1px;
+	}
+}
+
+.jke-calendar-events {
+	rect {
+		fill: transparentize($jke-calendar-eventBackgroundColor, 0.2);
+		stroke: white;
+		stroke-width: 1;
+	}
+	line {
+		stroke: $jke-calendar-eventBorderColor;
+		stroke-width: 2;
+	}
+	text.jke-calendar-time {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		fill: $jke-calendar-eventTimeColor;
+		font-size: 12px;
+	}
+	text.jke-calendar-notes {
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		fill: $jke-calendar-eventNotesColor;
+		font-size: 13px;
 	}
 }

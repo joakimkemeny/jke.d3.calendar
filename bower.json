@@ -5,14 +5,21 @@
 	"keywords": ["d3", "calendar"],
 
 	"main": [
-		"dist/jke-d3-calendar.min.js", "dist/jke-d3-calendar.css"
+		"dist/jke-d3-calendar.min.js",
+		"dist/jke-d3-calendar.css"
 	],
 	"ignore": [
-		"**/.*", "bower_components", "demo", "node_modules", "Gruntfile.js", "package.json"
+		"**/.*",
+		"bower_components",
+		"demo",
+		"node_modules",
+		"Gruntfile.js",
+		"package.json"
 	],
 
 	"dependencies": {
 		"d3": "~3.3.13",
-		"jquery-ui": "~1.10.3"
+		"jquery-ui": "~1.10.3",
+		"moment": "~2.5.0"
 	}
 }
