@@ -5,11 +5,85 @@ This is a calendar component built on top of [D3.js](http://d3js.org) and it was
 [Better and more fun applications with D3.js](https://github.com/joakimkemeny/presentation.d3)) and it should **NOT**
 be considered production quality yet.
 
-The calendar displays a list of events in a week view with any number of days and animates all changes to the events, to the dimensions and to the time and date intervals. You can find a live demo [here](http://joakimkemeny.github.io/jke.d3.calendar).
+The calendar displays a list of events in a week view with any number of days and animates all changes to the events, to the dimensions and to the date and time intervals. You can find a live demo [here](http://joakimkemeny.github.io/jke.d3.calendar).
 
 ## Usage
 
-TBD
+To use this calendar you first need to download it and all of its dependencies. The easiest way to do that is through [Bower](http://bower.io).
+
+```
+> bower install https://github.com/joakimkemeny/jke.d3.calendar.git --save
+```
+
+The second step to include all dependencies in your HTML and initialize the calendar.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="bower_components/jke-d3-calendar/dist/jke-d3-calendar.css">
+</head>
+<body>
+
+	<!-- Placeholder for the calendar -->
+	<div class="jke-calendar"></div>
+
+	<!-- Include dependencies -->
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery.ui.widget.min.js"></script>
+	<script src="bower_components/d3/d3.min.js"></script>
+	<script src="bower_components/moment/min/moment.min.js"></script>
+
+	<!-- Include jke-d3-calendar and initialize the calendar -->
+	<script src="js/jke-d3-calendar.min.js"></script>
+	<script>
+		$('.jke-calendar').calendar({
+			
+			height: 600,
+			width: 800,
+
+			startDate: '2014-01-06',
+			endDate: '2014-01-08',
+
+			startTime: '07:00',
+			endTime: '18:00'
+			
+		});
+	</script>
+
+</body>
+</html>
+```
+
+The last step is to add some events to the calendar.
+
+```javascript
+$('.jke-calendar').calendar('updateData', [
+  {
+		id: 1,
+		startTime: '2014-01-06 08:00'),
+		endTime: '2014-01-06 13:00'),
+		notes: 'Morning meeting'
+	},
+	{
+		id: 2,
+		startTime: '2014-01-07 11:00'),
+		endTime: '2014-01-07 13:00'),
+		notes: 'Lunch'
+	}
+]);
+```
+
+You can call `updateData` as many times as you want and as long as the id:s of the events match it will animate changes to them and add and remove events as needed.
+
+Finally you can change the options that you specified when you initialized the calendar at any time.
+
+```javascript
+$('.jke-calendar').calendar('setDimensions', 1000, 800);
+$('.jke-calendar').calendar('setDateInterval', '2014-01-02', '2014-01-05');
+$('.jke-calendar').calendar('setTimeInterval', '07:00', '20:00');
+```
 
 ## Customize
 
