@@ -15,7 +15,7 @@ To use this calendar you first need to download it and all of its dependencies. 
 > bower install https://github.com/joakimkemeny/jke.d3.calendar.git --save
 ```
 
-The second step to include all dependencies in your HTML and initialize the calendar.
+The second step is to include all dependencies in your HTML and initialize the calendar.
 
 ```html
 <!DOCTYPE html>
