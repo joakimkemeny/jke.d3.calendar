@@ -36,7 +36,7 @@ The second step to include all dependencies in your HTML and initialize the cale
 	<script src="bower_components/moment/min/moment.min.js"></script>
 
 	<!-- Include jke-d3-calendar and initialize the calendar -->
-	<script src="js/jke-d3-calendar.min.js"></script>
+	<script src="bower_components/jke-d3-calendar/dist/jke-d3-calendar.min.js"></script>
 	<script>
 		$('.jke-calendar').calendar({
 			
@@ -62,14 +62,14 @@ The last step is to add some events to the calendar.
 $('.jke-calendar').calendar('updateData', [
   {
 		id: 1,
-		startTime: '2014-01-06 08:00'),
-		endTime: '2014-01-06 13:00'),
+		startTime: '2014-01-06 08:00',
+		endTime: '2014-01-06 13:00',
 		notes: 'Morning meeting'
 	},
 	{
 		id: 2,
-		startTime: '2014-01-07 11:00'),
-		endTime: '2014-01-07 13:00'),
+		startTime: '2014-01-07 11:00',
+		endTime: '2014-01-07 13:00',
 		notes: 'Lunch'
 	}
 ]);
