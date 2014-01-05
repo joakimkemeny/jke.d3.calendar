@@ -96,7 +96,7 @@
 
 			// Create a scale for x-coordinates.
 			widget.xScale = d3.time.scale()
-					.domain([widget.options.startDate, widget.options.endDate])
+					.domain([widget.options.startDate, d3.time.day.offset(widget.options.endDate, 1)])
 					.range([0, widget.options.width]);
 
 
@@ -234,7 +234,7 @@
 
 			// Update the scales.
 			widget.yScale.domain([widget.options.startTime, widget.options.endTime]);
-			widget.xScale.domain([widget.options.startDate, widget.options.endDate]);
+			widget.xScale.domain([widget.options.startDate, d3.time.day.offset(widget.options.endDate, 1)]);
 
 			// Update the generators to make sure they match the updated options.
 			widget.ySubGridGenerator.innerTickSize(-widget.options.width);
