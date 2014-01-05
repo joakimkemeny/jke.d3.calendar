@@ -1,37 +1,36 @@
-/* global moment */
-(function ($, moment) {
+(function ($) {
 	'use strict';
 
 	// A list of data point samples.
 	var _data = [
 		{
 			id: 1,
-			startTime: moment('2014-01-03 08:00').toDate(),
-			endTime: moment('2014-01-03 13:00').toDate(),
+			startTime: '2014-01-03 08:00',
+			endTime: '2014-01-03 13:00',
 			notes: 'Kalle Kula'
 		},
 		{
 			id: 2,
-			startTime: moment('2014-01-02 10:00').toDate(),
-			endTime: moment('2014-01-02 14:00').toDate(),
+			startTime: '2014-01-02 10:00',
+			endTime: '2014-01-02 14:00',
 			notes: 'Jonas Svensson'
 		},
 		{
 			id: 3,
-			startTime: moment('2014-01-03 13:00').toDate(),
-			endTime: moment('2014-01-03 15:00').toDate(),
+			startTime: '2014-01-03 13:00',
+			endTime: '2014-01-03 15:00',
 			notes: 'Anna Johansson'
 		},
 		{
 			id: 4,
-			startTime: moment('2014-01-03 15:30').toDate(),
-			endTime: moment('2014-01-03 16:30').toDate(),
+			startTime: '2014-01-03 15:30',
+			endTime: '2014-01-03 16:30',
 			notes: 'Karin Juhlin'
 		},
 		{
 			id: 5,
-			startTime: moment('2014-01-05 08:30').toDate(),
-			endTime: moment('2014-01-05 16:30').toDate(),
+			startTime: '2014-01-05 08:30',
+			endTime: '2014-01-05 16:30',
 			notes: 'Karin Juhlin'
 		}
 	];
@@ -42,26 +41,26 @@
 		$('.jke-calendar').calendar('updateData', [
 			{
 				id: 6,
-				startTime: moment('2014-01-02 08:00').toDate(),
-				endTime: moment('2014-01-02 14:00').toDate(),
+				startTime: '2014-01-02 08:00',
+				endTime: '2014-01-02 14:00',
 				notes: 'Jonas Svensson'
 			},
 			{
 				id: 3,
-				startTime: moment('2014-01-03 13:00').toDate(),
-				endTime: moment('2014-01-03 15:00').toDate(),
+				startTime: '2014-01-03 13:00',
+				endTime: '2014-01-03 15:00',
 				notes: 'Anna Johansson'
 			},
 			{
 				id: 4,
-				startTime: moment('2014-01-03 15:30').toDate(),
-				endTime: moment('2014-01-03 16:30').toDate(),
+				startTime: '2014-01-03 15:30',
+				endTime: '2014-01-03 16:30',
 				notes: 'Karin Juhlin'
 			},
 			{
 				id: 5,
-				startTime: moment('2014-01-06 08:30').toDate(),
-				endTime: moment('2014-01-06 16:30').toDate(),
+				startTime: '2014-01-06 08:30',
+				endTime: '2014-01-06 16:30',
 				notes: 'Karin Juhlin'
 			}
 		]);
@@ -71,32 +70,32 @@
 		$('.jke-calendar').calendar('updateData', [
 			{
 				id: 7,
-				startTime: moment('2014-01-03 08:00').toDate(),
-				endTime: moment('2014-01-03 13:00').toDate(),
+				startTime: '2014-01-03 08:00',
+				endTime: '2014-01-03 13:00',
 				notes: 'Kalle Kula'
 			},
 			{
 				id: 6,
-				startTime: moment('2014-01-02 08:00').toDate(),
-				endTime: moment('2014-01-02 14:00').toDate(),
+				startTime: '2014-01-02 08:00',
+				endTime: '2014-01-02 14:00',
 				notes: 'Jonas Svensson'
 			},
 			{
 				id: 3,
-				startTime: moment('2014-01-03 13:00').toDate(),
-				endTime: moment('2014-01-03 15:00').toDate(),
+				startTime: '2014-01-03 13:00',
+				endTime: '2014-01-03 15:00',
 				notes: 'Anna Johansson'
 			},
 			{
 				id: 4,
-				startTime: moment('2014-01-04 16:30').toDate(),
-				endTime: moment('2014-01-04 17:30').toDate(),
+				startTime: '2014-01-04 16:30',
+				endTime: '2014-01-04 17:30',
 				notes: 'Karin Juhlin'
 			},
 			{
 				id: 5,
-				startTime: moment('2014-01-04 07:30').toDate(),
-				endTime: moment('2014-01-04 16:00').toDate(),
+				startTime: '2014-01-04 07:30',
+				endTime: '2014-01-04 16:00',
 				notes: 'Karin Juhlin'
 			}
 		]);
@@ -114,4 +113,4 @@
 		$('.jke-calendar').calendar('setDimensions', 1000, 800);
 	}, 10000);
 
-})($, moment);
+})($);

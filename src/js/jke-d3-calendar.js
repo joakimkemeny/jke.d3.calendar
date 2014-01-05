@@ -20,6 +20,15 @@
 		}
 	};
 
+	var toDateTime = function (date) {
+
+		if (date instanceof Date) {
+			return date;
+		} else {
+			return moment(date).toDate();
+		}
+	};
+
 	$.widget('jke.calendar', {
 
 		// Default options
@@ -418,6 +427,9 @@
 			var d;
 			for (var i = 0; i < data.length; i++) {
 				d = data[i];
+
+				d.startTime = toDateTime(d.startTime);
+				d.endTime = toDateTime(d.endTime);
 
 				d._day = toDay(d.startTime);
 				d._start = toTimeToday(d.startTime);
