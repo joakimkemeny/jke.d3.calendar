@@ -293,7 +293,7 @@
 			// Remove all removed events from their placeholders.
 			eventBoxes.exit()
 					.transition().duration(delay2)
-					.attr('height', 0)
+					.attr('width', 0)
 					.remove();
 
 
@@ -319,7 +319,7 @@
 			// Remove all removed events from their placeholders.
 			eventBorders.exit()
 					.transition().duration(delay2)
-					.attr('y2', 0)
+					.attr('opacity', 0)
 					.remove();
 
 			// Create a selection for all event time texts.
