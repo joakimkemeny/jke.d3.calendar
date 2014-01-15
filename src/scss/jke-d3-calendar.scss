@@ -76,20 +76,32 @@ $jke-calendar-eventNotesColor: #000 !default;
 
 .jke-calendar-events {
 	rect {
+		cursor: pointer;
 		fill: transparentize($jke-calendar-eventBackgroundColor, 0.2);
 		stroke: white;
 		stroke-width: 1;
+
+		-webkit-transition: 0.2s linear all;
+		transition: 0.2s linear all;
+
+		&:hover {
+			fill: transparentize($jke-calendar-eventBorderColor, 0.5);
+		}
 	}
+
 	line {
+		cursor: pointer;
 		stroke: $jke-calendar-eventBorderColor;
 		stroke-width: 2;
 	}
 	text.jke-calendar-time {
+		cursor: pointer;
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		fill: $jke-calendar-eventTimeColor;
 		font-size: 12px;
 	}
 	text.jke-calendar-notes {
+		cursor: pointer;
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		fill: $jke-calendar-eventNotesColor;
 		font-size: 13px;

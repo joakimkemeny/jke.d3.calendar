@@ -231,6 +231,9 @@
 				return d.notes;
 			};
 
+			var sendClickEvent = function (d) {
+				widget._trigger('click', null, d.id);
+			};
 
 			// Update the scales.
 			widget.yScale.domain([widget.options.startTime, widget.options.endTime]);
@@ -279,6 +282,7 @@
 					.attr('opacity', 0)
 					.attr('width', getEventWidth)
 					.attr('transform', getEventPosition)
+					.on('click', sendClickEvent)
 					.transition().duration(800)
 					.attr('height', getEventHeight)
 					.attr('opacity', 1);

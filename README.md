@@ -39,7 +39,7 @@ The second step is to include all dependencies in your HTML and initialize the c
 	<script src="bower_components/jke-d3-calendar/dist/jke-d3-calendar.min.js"></script>
 	<script>
 		$('.jke-calendar').calendar({
-			
+
 			height: 600,
 			width: 800,
 
@@ -48,7 +48,7 @@ The second step is to include all dependencies in your HTML and initialize the c
 
 			startTime: '07:00',
 			endTime: '18:00'
-			
+
 		});
 	</script>
 
@@ -60,7 +60,7 @@ The last step is to add some events to the calendar.
 
 ```javascript
 $('.jke-calendar').calendar('updateData', [
-  {
+	{
 		id: 1,
 		startTime: '2014-01-06 08:00',
 		endTime: '2014-01-06 13:00',
@@ -83,6 +83,23 @@ Finally you can change the options that you specified when you initialized the c
 $('.jke-calendar').calendar('setDimensions', 1000, 800);
 $('.jke-calendar').calendar('setDateInterval', '2014-01-02', '2014-01-05');
 $('.jke-calendar').calendar('setTimeInterval', '07:00', '20:00');
+```
+
+If you want the events to be clickable you can provide a click handler like this.
+
+```javascript
+$('.jke-calendar').calendar({
+
+	click: function (e, id) {
+		console.log(id);
+	}
+});
+
+// or attach later...
+
+$('.jke-calendar').bind('calendarclick', function (e, id) {
+	console.log(id);
+});
 ```
 
 ## Customize
