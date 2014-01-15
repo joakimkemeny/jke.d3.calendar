@@ -195,7 +195,7 @@
 					.attr('clip-path', 'url(#calendarClip)');
 
 			if (widget.options.data) {
-				widget._redraw();
+				widget._redraw(false);
 			}
 		},
 
@@ -203,8 +203,11 @@
 			this.element.remove('svg');
 		},
 
-		_redraw: function () {
+		_redraw: function (animate) {
 			var widget = this;
+
+			var delay1 = animate ? 800 : 0;
+			var delay2 = animate ? 300 : 0;
 
 			var getEventHeight = function (d) {
 				return widget.yScale(d._end) - widget.yScale(d._start);
@@ -246,20 +249,20 @@
 
 			// Update the axis and grids.
 			widget.yAxis
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.call(widget.yAxisGenerator);
 			widget.ySubGrid
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.call(widget.ySubGridGenerator);
 			widget.yGrid
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.call(widget.yGridGenerator);
 			widget.xAxis
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.call(widget.xAxisGenerator)
 					.call(widget.centerLabel);
 			widget.xGrid
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.call(widget.xGridGenerator);
 
 
@@ -269,7 +272,7 @@
 
 			// Update the dimension and position for updated events.
 			eventBoxes
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('width', getEventWidth)
 					.attr('transform', getEventPosition)
 					.attr('height', getEventHeight);
@@ -283,13 +286,13 @@
 					.attr('width', getEventWidth)
 					.attr('transform', getEventPosition)
 					.on('click', sendClickEvent)
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('height', getEventHeight)
 					.attr('opacity', 1);
 
 			// Remove all removed events from their placeholders.
 			eventBoxes.exit()
-					.transition().duration(300)
+					.transition().duration(delay2)
 					.attr('height', 0)
 					.remove();
 
@@ -300,7 +303,7 @@
 
 			// Update the dimensions and position for updated events.
 			eventBorders
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('transform', getEventPosition)
 					.attr('y2', getEventHeight);
 
@@ -310,12 +313,12 @@
 					.attr('x1', 0).attr('x2', 0)
 					.attr('y1', 0).attr('y2', 0)
 					.attr('transform', getEventPosition)
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('y2', getEventHeight);
 
 			// Remove all removed events from their placeholders.
 			eventBorders.exit()
-					.transition().duration(300)
+					.transition().duration(delay2)
 					.attr('y2', 0)
 					.remove();
 
@@ -327,7 +330,7 @@
 			// Update the text and position for updated events.
 			eventTimes
 					.text(getEventTimeText)
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('transform', getEventPosition);
 
 			// Append a new text to each of the placeholders for new events.
@@ -338,12 +341,12 @@
 					.attr('x', 8).attr('y', 18)
 					.attr('transform', getEventPosition)
 					.attr('opacity', 0)
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('opacity', 1);
 
 			// Remove all removed events from their placeholders.
 			eventTimes.exit()
-					.transition().duration(200)
+					.transition().duration(delay2)
 					.attr('opacity', 0)
 					.remove();
 
@@ -355,7 +358,7 @@
 			// Update the text and position for updated events.
 			eventNotes
 					.text(getEventNotesText)
-					.transition().duration(800)
+					.transition().duration(delay1)
 					.attr('transform', getEventPosition);
 
 			// Append a new text to each of the placeholders for new events.
@@ -366,13 +369,13 @@
 					.attr('x', 8).attr('y', 33)
 					.attr('transform', getEventPosition)
 					.attr('opacity', 0)
-					.transition().delay(500)
-					.duration(200)
+					.transition().delay(delay1 - delay2)
+					.duration(delay2)
 					.attr('opacity', 1);
 
 			// Remove all removed events from their placeholders.
 			eventNotes.exit()
-					.transition().duration(200)
+					.transition().duration(delay2)
 					.attr('opacity', 0)
 					.remove();
 		},
@@ -384,14 +387,14 @@
 
 			this.options.startDate = toDay(startDate);
 			this.options.endDate = toDay(endDate);
-			this._redraw();
+			this._redraw(true);
 		},
 
 		setTimeInterval: function (startTime, endTime) {
 
 			this.options.startTime = toTimeToday(startTime);
 			this.options.endTime = toTimeToday(endTime);
-			this._redraw();
+			this._redraw(true);
 		},
 
 		setDimensions: function (width, height) {
@@ -399,7 +402,6 @@
 
 			// Update dimensions of the svg (using the untouched height and width)
 			widget.svg
-					.transition().duration(800)
 					.attr('height', height)
 					.attr('width', width);
 
@@ -409,13 +411,11 @@
 
 			// Update the dimensions of the background.
 			widget.background
-					.transition().duration(800)
 					.attr('height', widget.options.height)
 					.attr('width', widget.options.width);
 
 			// Update the dimensions of the clipping mask.
 			widget.clipMask
-					.transition().duration(800)
 					.attr('height', widget.options.height)
 					.attr('width', widget.options.width);
 
@@ -423,7 +423,7 @@
 			widget.yScale.range([0, widget.options.height]);
 			widget.xScale.range([0, widget.options.width]);
 
-			this._redraw();
+			this._redraw(false);
 		},
 
 		updateData: function (data) {
@@ -441,7 +441,7 @@
 			}
 
 			this.data = data;
-			this._redraw();
+			this._redraw(true);
 		}
 	});
 
