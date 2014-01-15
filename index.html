@@ -24,7 +24,11 @@
 	<!-- Include jke-d3-calendar and initialize the calendar -->
 	<script src="js/jke-d3-calendar.min.js"></script>
 	<script>
-		$('.jke-calendar').calendar();
+		$('.jke-calendar').calendar({
+			click: function (e, id) {
+				console.log(id);
+			}
+		});
 	</script>
 
 	<!-- Include a data source to feed the calendar with data -->
