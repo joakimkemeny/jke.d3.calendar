@@ -88,15 +88,14 @@ $('.jke-calendar').calendar('setTimeInterval', '07:00', '20:00');
 If you want the events to be clickable you can provide a click handler like this.
 
 ```javascript
+// Attach on initialization...
 $('.jke-calendar').calendar({
-
 	click: function (e, id) {
 		console.log(id);
 	}
 });
 
-// or attach later...
-
+// ...or attach later
 $('.jke-calendar').bind('calendarclick', function (e, id) {
 	console.log(id);
 });
