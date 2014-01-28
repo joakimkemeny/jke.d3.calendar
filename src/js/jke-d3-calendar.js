@@ -195,6 +195,18 @@
 					.attr('clip-path', 'url(#calendarClip)');
 
 			if (widget.options.data) {
+				var d;
+				for (var i = 0; i < widget.options.data.length; i++) {
+					d = widget.options.data[i];
+
+					d.startTime = toDateTime(d.startTime);
+					d.endTime = toDateTime(d.endTime);
+
+					d._day = toDay(d.startTime);
+					d._start = toTimeToday(d.startTime);
+					d._end = toTimeToday(d.endTime);
+				}
+				widget.data = widget.options.data;
 				widget._redraw(false);
 			}
 		},
